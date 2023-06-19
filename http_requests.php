@@ -9,7 +9,7 @@ class HttpRequests
     public static function post($url, $param, $header=null){
         $ch=curl_init($url.'?'.uniqid());
         curl_setopt($ch,CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
         return self::no_cache($ch, $header);
     }
 
