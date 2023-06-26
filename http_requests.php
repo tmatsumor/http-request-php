@@ -2,12 +2,12 @@
 class HttpRequests
 {
     public static function get($url, $param, $header=null){
-        $ch=curl_init($url.'?'.http_build_query($param).'&'.uniqid());
+        $ch=curl_init($url.'?'.http_build_query($param));
         return self::no_cache($ch, $header);
     }
 
     public static function post($url, $param, $header=null, $userpwd=null){
-        $ch=curl_init($url.'?'.uniqid());
+        $ch=curl_init($url);
         curl_setopt($ch,CURLOPT_POST, TRUE);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
         if(!is_null($userpwd)){
@@ -35,4 +35,3 @@ class HttpRequests
         return [$body, $info];
     }
 }
-?>
