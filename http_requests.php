@@ -6,10 +6,13 @@ class HttpRequests
         return self::no_cache($ch, $header);
     }
 
-    public static function post($url, $param, $header=null){
+    public static function post($url, $param, $header=null, $userpwd=null){
         $ch=curl_init($url.'?'.uniqid());
         curl_setopt($ch,CURLOPT_POST, TRUE);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+        if(!is_null($userpwd)){
+            curl_setopt($ch, CURLOPT_USERPWD, $userpwd);
+        }
         return self::no_cache($ch, $header);
     }
 
