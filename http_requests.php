@@ -1,4 +1,5 @@
 <?php
+namespace tmatsumor\http_requests_php;
 class HttpRequests
 {
     public static function get($url, $param, $header=null){
